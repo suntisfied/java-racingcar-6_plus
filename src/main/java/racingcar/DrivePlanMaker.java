@@ -9,7 +9,7 @@ import racingcar.valueholder.CarNames;
 import racingcar.valueholder.DriveTrials;
 import racingcar.valueholder.MaxRaceLap;
 
-public class PaceMaker {
+public class DrivePlanMaker {
 
     public static DrivePlan createDrivePlan(CarNames carNames, MaxRaceLap maxRaceLap) {
         return new DrivePlan(carNames.names().stream()
