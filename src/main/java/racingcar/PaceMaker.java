@@ -4,6 +4,7 @@ import static camp.nextstep.edu.missionutils.Randoms.pickNumberInRange;
 import static racingcar.Settings.MAXIMUM_DRIVE_TRIAL;
 import static racingcar.Settings.MINIMUM_DRIVE_TRIAL;
 
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -24,7 +25,9 @@ public class PaceMaker {
 
     public Map<CarName, DriveTrials> createDriveLog() {
         return carNames.stream()
-                .collect(Collectors.toMap(CarName::new, key -> new DriveTrials(generateDriveTrials())));
+                .collect(Collectors.toMap(CarName::new, key -> new DriveTrials(generateDriveTrials()),
+                        (oldValue, newValue) -> oldValue,
+                        LinkedHashMap::new));
     }
 
     public List<Integer> generateDriveTrials() {
