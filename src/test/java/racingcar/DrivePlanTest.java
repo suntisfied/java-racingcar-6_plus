@@ -36,9 +36,11 @@ class DrivePlanTest {
 
             DrivePlan drivePlan = new PaceMaker(carNames, maxRaceLap).createDrivePlan();
             int DriveByRaceLap = drivePlan.computeDriveByRaceLap(new CarName("alpha"), new RaceLap(mockCurrentRaceLap));
+            CarNames winners = drivePlan.pickWinners();
 
             assertAll(
                     () -> assertEquals(mockDriveByRaceLap, DriveByRaceLap),
+                    () -> assertEquals(carNames, winners),
                     () -> assertEquals(carNames, drivePlan.getCarNames()));
         }
     }
