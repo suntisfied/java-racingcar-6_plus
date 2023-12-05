@@ -6,32 +6,32 @@ import static racingcar.Settings.MINIMUM_DRIVE_TRIAL;
 
 import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Map;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import racingcar.valueholder.CarName;
 import racingcar.valueholder.CarNames;
 import racingcar.valueholder.DriveTrials;
-import racingcar.valueholder.RaceLap;
+import racingcar.valueholder.MaxRaceLap;
 
 public class PaceMaker {
-    private final List<String> carNames;
-    private final int raceLap;
+    private final List<CarName> carNames;
+    private final int maxRaceLap;
 
-    public PaceMaker(final CarNames carNames, final RaceLap raceLap) {
+    public PaceMaker(final CarNames carNames, final MaxRaceLap maxRaceLap) {
         this.carNames = carNames.names();
-        this.raceLap = raceLap.number();
+        this.maxRaceLap = maxRaceLap.number();
     }
 
-    public Map<CarName, DriveTrials> createDriveLog() {
-        return carNames.stream()
-                .collect(Collectors.toMap(CarName::new, key -> new DriveTrials(generateDriveTrials()),
+    public DrivePlan createDrivePlan() {
+        return new DrivePlan(carNames.stream()
+                .collect(Collectors.toMap(Function.identity(), key -> new DriveTrials(generateDriveTrials()),
                         (oldValue, newValue) -> oldValue,
-                        LinkedHashMap::new));
+                        LinkedHashMap::new)));
     }
 
-    public List<Integer> generateDriveTrials() {
-        return IntStream.range(0, raceLap)
+    private List<Integer> generateDriveTrials() {
+        return IntStream.range(0, maxRaceLap)
                 .mapToObj(i -> pickNumberInRange(MINIMUM_DRIVE_TRIAL.getNumber(), MAXIMUM_DRIVE_TRIAL.getNumber()))
                 .toList();
     }
