@@ -24,10 +24,7 @@ class DrivePlanTest {
     void shouldBeBasedOnInput(String mockDriveTrialsString, int mockCurrentRaceLap, int mockDriveByRaceLap) {
         CarNames carNames = new CarNames(List.of(new CarName("alpha"), new CarName("bravo")));
         MaxRaceLap maxRaceLap = new MaxRaceLap(3);
-        List<Integer> mockDriveTrials =
-                Stream.of(mockDriveTrialsString.split(","))
-                .map(Integer::parseInt)
-                .toList();
+        List<Integer> mockDriveTrials = stringToIntegerList(mockDriveTrialsString);
 
         try (MockedStatic<DriveTrialsGenerator> mockDriveTrialsGenerator = Mockito.mockStatic(DriveTrialsGenerator.class)) {
             mockDriveTrialsGenerator.when(() -> DriveTrialsGenerator.generateDriveTrials(maxRaceLap))
@@ -42,5 +39,11 @@ class DrivePlanTest {
                     () -> assertEquals(carNames, winners),
                     () -> assertEquals(carNames, drivePlan.getCarNames()));
         }
+    }
+
+    private List<Integer> stringToIntegerList(String listInString) {
+        return Stream.of(listInString.split(","))
+                .map(Integer::parseInt)
+                .toList();
     }
 }
