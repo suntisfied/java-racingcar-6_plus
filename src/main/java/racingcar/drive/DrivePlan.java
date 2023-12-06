@@ -19,7 +19,7 @@ public class DrivePlan {
     }
 
     public int computeDriveByRaceLap(CarName carName, RaceLap raceLap) {
-        return (int) IntStream.range(0, raceLap.number())
+        return (int) IntStream.rangeClosed(0, raceLap.number())
                 .filter(currentLap -> isDriving(carName, new RaceLap(currentLap)))
                 .count();
     }
