@@ -1,9 +1,10 @@
-package racingcar;
+package racingcar.drive;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
+import racingcar.setting.Settings;
 import racingcar.valueholder.CarName;
 import racingcar.valueholder.CarNames;
 import racingcar.valueholder.DriveTrials;

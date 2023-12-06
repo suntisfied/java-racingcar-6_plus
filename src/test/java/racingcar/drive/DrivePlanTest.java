@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.drive;
 
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;

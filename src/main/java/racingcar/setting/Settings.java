@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.setting;
 
 public enum Settings {
     MINIMUM_DRIVE_TRIAL(0),

@@ -1,6 +1,6 @@
-package racingcar;
+package racingcar.drive;
 
-import static racingcar.DriveTrialsGenerator.generateDriveTrials;
+import static racingcar.drive.DriveTrialsGenerator.generateDriveTrials;
 
 import java.util.LinkedHashMap;
 import java.util.function.Function;
