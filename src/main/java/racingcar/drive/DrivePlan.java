@@ -41,7 +41,7 @@ public class DrivePlan {
     private Map<CarName, Integer> createDriveLog() {
         return drivePlan.entrySet().stream().collect(Collectors.toMap(
                 Map.Entry::getKey,
-                entry -> computeDriveByRaceLap(entry.getKey(), new RaceLap(getMaxRaceLap().number())),
+                entry -> computeDriveByRaceLap(entry.getKey(), new RaceLap(getMaxRaceLap().number() - 1)),
                 (oldValue, newValue) -> oldValue,
                 LinkedHashMap::new
         ));
