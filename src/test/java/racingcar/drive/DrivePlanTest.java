@@ -17,9 +17,9 @@ import racingcar.valueholder.RaceLap;
 class DrivePlanTest {
     @ParameterizedTest
     @CsvSource({
-            "'3,4,5', 1, 0",
-            "'3,4,5', 2, 1",
-            "'3,4,5', 3, 2",
+            "'3,4,5', 0, 0",
+            "'3,4,5', 1, 1",
+            "'3,4,5', 2, 2",
     })
     void shouldBeBasedOnInput(String mockDriveTrialsString, int mockCurrentRaceLap, int mockDriveByRaceLap) {
         CarNames carNames = new CarNames(List.of(new CarName("alpha"), new CarName("bravo")));

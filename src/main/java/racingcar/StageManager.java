@@ -8,6 +8,7 @@ import racingcar.drive.DrivePlanMaker;
 import racingcar.input.CarNameReader;
 import racingcar.input.RaceLapReader;
 import racingcar.textformat.DriveFormatter;
+import racingcar.textformat.WinnerFormatter;
 import racingcar.valueholder.CarNames;
 import racingcar.valueholder.MaxRaceLap;
 
@@ -19,5 +20,6 @@ public class StageManager {
         DrivePlan drivePlan = DrivePlanMaker.createDrivePlan(carNames, maxRaceLap);
 
         System.out.println(DriveFormatter.formatDrive(drivePlan));
+        System.out.println(WinnerFormatter.formatWinners(drivePlan));
     }
 }
