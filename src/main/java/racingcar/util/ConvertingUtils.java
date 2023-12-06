@@ -29,16 +29,4 @@ public class ConvertingUtils {
     public static String convertNumberToGraphic(int driveSuccessNumber) {
         return Texts.DRIVE_GRAPHIC.getText().repeat(driveSuccessNumber);
     }
-
-    public static List<Integer> convertStringToIntegerList(String listInString) {
-        return convertStringToList(listInString).stream()
-                .map(Integer::parseInt)
-                .toList();
-    }
-
-    public static Set<Integer> convertStringToIntegerSet(String setInString) {
-        return convertStringToList(setInString).stream()
-                .map(Integer::parseInt)
-                .collect(Collectors.toSet());
-    }
 }

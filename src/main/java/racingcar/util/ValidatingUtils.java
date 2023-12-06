@@ -17,20 +17,6 @@ public class ValidatingUtils {
         }
     };
 
-    public static final Predicate<String> isNumericString = input -> {
-        try {
-            Double.parseDouble(input);
-            return true;
-        } catch (NumberFormatException e) {
-            return false;
-        }
-    };
-
-    public static final Predicate<String> areAllElementsStrings = input -> {
-        List<String> inputAsList = convertStringToList(input);
-        return inputAsList.stream().noneMatch(isNumericString);
-    };
-
     public static final Predicate<String> areAllAlphabets = input -> {
         List<String> inputAsList = convertStringToList(input);
         return inputAsList.stream().allMatch(element -> element != null && element.matches("[a-zA-Z]+"));
