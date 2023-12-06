@@ -8,6 +8,7 @@ public enum Texts {
     HEAD_RESULT("실행 결과"),
     HEAD_WINNER("최종 우승자 : "),
     DELIMITER(","),
+    DRIVE_GRAPHIC("-"),
     ;
 
     public final String text;
