@@ -6,6 +6,7 @@ public enum Texts {
     ERROR_INVALID_CAR_NAMES("[ERROR] 올바른 차량명 입력이 아닙니다."),
     ERROR_INVALID_RACE_LAP("[ERROR] 올바른 횟수 입력이 아닙니다."),
     HEAD_RESULT("실행 결과"),
+    BODY_RESULT_FORMAT("%s : %s"),
     HEAD_WINNER("최종 우승자 : "),
     DELIMITER(","),
     DRIVE_GRAPHIC("-"),

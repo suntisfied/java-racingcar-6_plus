@@ -31,7 +31,7 @@ public class DriveFormatter {
         return carNames.names().stream()
                 .map(carName -> {
                     String drive = convertNumberToGraphic(drivePlan.computeDriveByRaceLap(carName, raceLap));
-                    return carName.name() + " : " + drive + LINE_BREAK;
+                    return String.format(Texts.BODY_RESULT_FORMAT.getText(), carName.name(), drive) + LINE_BREAK;
                 })
                 .collect(Collectors.joining());
     }
