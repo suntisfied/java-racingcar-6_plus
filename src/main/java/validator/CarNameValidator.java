@@ -1,9 +1,10 @@
 package validator;
 
-import static racingcar.util.ConvertingUtils.convertStringToList;
 import static racingcar.util.ValidatingUtils.areAllAlphabets;
+import static racingcar.util.ValidatingUtils.isProperCarNameNumber;
+import static racingcar.util.ValidatingUtils.isUniqueOnly;
+import static racingcar.util.ValidatingUtils.isUsingProperDelimiter;
 
-import java.util.List;
 import racingcar.inputform.InputValidatorForm;
 import racingcar.setting.Texts;
 
@@ -14,7 +15,9 @@ public class CarNameValidator extends InputValidatorForm {
     }
 
     private static boolean validateCarNames(String input) {
-        List<String> inputAsList = convertStringToList(input);
-        return areAllAlphabets.test(inputAsList);
+        return areAllAlphabets.test(input)
+                && isProperCarNameNumber.test(input)
+                && isUniqueOnly.test(input)
+                && isUsingProperDelimiter.test(input);
     }
 }
