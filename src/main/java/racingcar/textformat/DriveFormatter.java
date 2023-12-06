@@ -1,6 +1,7 @@
 package racingcar.textformat;
 
 import static racingcar.util.ConvertingUtils.convertNumberToGraphic;
+import static racingcar.util.TextUtils.LINE_BREAK;
 import static racingcar.util.TextUtils.removeLastBlank;
 
 import java.util.stream.Collectors;
@@ -15,12 +16,12 @@ public class DriveFormatter {
     public static String formatDrive(DrivePlan drivePlan) {
         MaxRaceLap maxRaceLap = drivePlan.getMaxRaceLap();
 
-        return System.lineSeparator()
+        return LINE_BREAK
                 + Texts.HEAD_RESULT.getText()
-                + System.lineSeparator()
+                + LINE_BREAK
                 + removeLastBlank(IntStream.range(0, maxRaceLap.number())
                 .mapToObj(currentRaceLap ->
-                        formatDriveByRaceLap(drivePlan, new RaceLap(currentRaceLap)) + System.lineSeparator())
+                        formatDriveByRaceLap(drivePlan, new RaceLap(currentRaceLap)) + LINE_BREAK)
                 .collect(Collectors.joining()));
     }
 
@@ -30,7 +31,7 @@ public class DriveFormatter {
         return carNames.names().stream()
                 .map(carName -> {
                     String drive = convertNumberToGraphic(drivePlan.computeDriveByRaceLap(carName, raceLap));
-                    return carName.name() + " : " + drive + System.lineSeparator();
+                    return carName.name() + " : " + drive + LINE_BREAK;
                 })
                 .collect(Collectors.joining());
     }
