@@ -6,6 +6,7 @@ import static racingcar.util.CountingUtils.countDelimiters;
 
 import java.util.List;
 import java.util.function.Predicate;
+import racingcar.setting.Settings;
 
 public class ValidatingUtils {
     public static final Predicate<String> isPositiveInteger = input -> {
@@ -35,9 +36,9 @@ public class ValidatingUtils {
         return inputAsList.stream().allMatch(element -> element != null && element.matches("[a-zA-Z]+"));
     };
 
-    public static final Predicate<String> isProperCarNameNumber = input -> {
+    public static final Predicate<String> isProperCarNameLength = input -> {
         List<String> inputAsList = convertStringToList(input);
-        return inputAsList.size() >= 2 && inputAsList.size() <= 5;
+        return inputAsList.stream().allMatch(carName -> carName.length() <= Settings.MAXIMUM_CAR_NAME_LENGTH.getNumber());
     };
 
     public static final Predicate<String> isUniqueOnly = input ->

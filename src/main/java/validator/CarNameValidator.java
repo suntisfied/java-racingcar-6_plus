@@ -1,7 +1,7 @@
 package validator;
 
 import static racingcar.util.ValidatingUtils.areAllAlphabets;
-import static racingcar.util.ValidatingUtils.isProperCarNameNumber;
+import static racingcar.util.ValidatingUtils.isProperCarNameLength;
 import static racingcar.util.ValidatingUtils.isUniqueOnly;
 import static racingcar.util.ValidatingUtils.isUsingProperDelimiter;
 
@@ -16,7 +16,7 @@ public class CarNameValidator extends InputValidatorForm {
 
     private static boolean validateCarNames(String input) {
         return areAllAlphabets.test(input)
-                && isProperCarNameNumber.test(input)
+                && isProperCarNameLength.test(input)
                 && isUniqueOnly.test(input)
                 && isUsingProperDelimiter.test(input);
     }
