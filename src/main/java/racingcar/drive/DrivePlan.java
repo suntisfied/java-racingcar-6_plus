@@ -1,7 +1,10 @@
 package racingcar.drive;
 
+import static racingcar.drive.DriveTrialsGenerator.generateDriveTrials;
+
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import racingcar.setting.Settings;
@@ -14,8 +17,15 @@ import racingcar.valueholder.RaceLap;
 public class DrivePlan {
     private final Map<CarName, DriveTrials> drivePlan;
 
-    public DrivePlan(final Map<CarName, DriveTrials> drivePlan) {
-        this.drivePlan = drivePlan;
+    public DrivePlan(final CarNames carNames, final MaxRaceLap maxRaceLap) {
+        drivePlan = createDrivePlan(carNames, maxRaceLap);
+    }
+
+    private Map<CarName, DriveTrials> createDrivePlan(CarNames carNames, MaxRaceLap maxRaceLap) {
+        return carNames.names().stream()
+                .collect(Collectors.toMap(Function.identity(), key -> new DriveTrials(generateDriveTrials(maxRaceLap)),
+                        (oldValue, newValue) -> oldValue,
+                        LinkedHashMap::new));
     }
 
     public int computeDriveByRaceLap(CarName carName, RaceLap raceLap) {

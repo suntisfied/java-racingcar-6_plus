@@ -30,7 +30,7 @@ class DrivePlanTest {
             mockDriveTrialsGenerator.when(() -> DriveTrialsGenerator.generateDriveTrials(maxRaceLap))
                     .thenReturn(mockDriveTrials);
 
-            DrivePlan drivePlan = DrivePlanMaker.createDrivePlan(carNames, maxRaceLap);
+            DrivePlan drivePlan = new DrivePlan(carNames, maxRaceLap);
             int DriveByRaceLap = drivePlan.computeDriveByRaceLap(new CarName("alpha"), new RaceLap(mockCurrentRaceLap));
             CarNames winners = drivePlan.pickWinners();
 
