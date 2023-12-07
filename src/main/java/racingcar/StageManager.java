@@ -13,7 +13,7 @@ import racingcar.valueholder.CarNames;
 import racingcar.valueholder.MaxRaceLap;
 
 public class StageManager {
-    public static void proceedGame() {
+    public static void proceedRace() {
         CarNames carNames = convertStringToCarNames(CarNameReader.readCarNames());
         MaxRaceLap maxRaceLap = convertStringToMaxRaceLap(RaceLapReader.readRaceLap());
 
