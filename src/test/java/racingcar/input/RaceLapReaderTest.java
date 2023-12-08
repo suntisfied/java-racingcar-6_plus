@@ -7,6 +7,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.mockito.MockedStatic;
 import org.mockito.Mockito;
+import racingcar.view.input.RaceLapReader;
 
 class RaceLapReaderTest {
     @ParameterizedTest

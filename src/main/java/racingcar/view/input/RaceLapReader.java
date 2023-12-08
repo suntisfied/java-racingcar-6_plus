@@ -1,8 +1,8 @@
-package racingcar.input;
+package racingcar.view.input;
 
-import racingcar.inputform.ConsoleInputForm;
+import racingcar.view.inputform.ConsoleInputForm;
 import racingcar.setting.Texts;
-import validator.RaceLapValidator;
+import racingcar.view.validator.RaceLapValidator;
 
 public class RaceLapReader extends ConsoleInputForm {
     public static String readRaceLap() {

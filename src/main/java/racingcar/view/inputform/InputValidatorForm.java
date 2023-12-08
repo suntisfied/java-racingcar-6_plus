@@ -1,4 +1,4 @@
-package racingcar.inputform;
+package racingcar.view.inputform;
 
 import java.util.function.BooleanSupplier;
 

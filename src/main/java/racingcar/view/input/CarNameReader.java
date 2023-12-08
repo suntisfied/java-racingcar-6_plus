@@ -1,8 +1,8 @@
-package racingcar.input;
+package racingcar.view.input;
 
-import racingcar.inputform.ConsoleInputForm;
+import racingcar.view.inputform.ConsoleInputForm;
 import racingcar.setting.Texts;
-import validator.CarNameValidator;
+import racingcar.view.validator.CarNameValidator;
 
 public class CarNameReader extends ConsoleInputForm {
     public static String readCarNames() {

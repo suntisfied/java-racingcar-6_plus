@@ -1,4 +1,4 @@
-package racingcar.textformat;
+package racingcar.view.textformat;
 
 import java.util.stream.Collectors;
 import racingcar.drive.DrivePlan;

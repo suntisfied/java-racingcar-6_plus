@@ -1,4 +1,4 @@
-package racingcar.textformat;
+package racingcar.view.textformat;
 
 import static racingcar.util.ConvertingUtils.convertNumberToGraphic;
 import static racingcar.util.TextUtils.LINE_BREAK;
