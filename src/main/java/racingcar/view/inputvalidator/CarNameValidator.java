@@ -1,4 +1,4 @@
-package racingcar.view.validator;
+package racingcar.view.inputvalidator;
 
 import static racingcar.util.ValidatingUtils.areAllAlphabets;
 import static racingcar.util.ValidatingUtils.isProperCarNameLength;

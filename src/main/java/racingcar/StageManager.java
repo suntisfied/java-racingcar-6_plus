@@ -6,8 +6,8 @@ import static racingcar.util.ConvertingUtils.convertStringToMaxRaceLap;
 import racingcar.drive.DrivePlan;
 import racingcar.view.input.CarNameReader;
 import racingcar.view.input.RaceLapReader;
-import racingcar.view.textformat.DriveFormatter;
-import racingcar.view.textformat.WinnerFormatter;
+import racingcar.view.outputformat.DriveFormatter;
+import racingcar.view.outputformat.WinnerFormatter;
 import racingcar.valueholder.CarNames;
 import racingcar.valueholder.MaxRaceLap;
 

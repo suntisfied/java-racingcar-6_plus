@@ -4,7 +4,7 @@ import static org.assertj.core.api.Assertions.assertThatIllegalArgumentException
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
-import racingcar.view.validator.CarNameValidator;
+import racingcar.view.inputvalidator.CarNameValidator;
 
 class CarNameValidatorTest {
     @ParameterizedTest
