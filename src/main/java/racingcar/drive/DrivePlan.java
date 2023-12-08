@@ -1,6 +1,7 @@
 package racingcar.drive;
 
 import static racingcar.drive.DriveTrialsGenerator.generateDriveTrials;
+import static racingcar.util.ConvertingUtils.convertMaxRaceLapToRaceLap;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -51,7 +52,7 @@ public class DrivePlan {
     private Map<CarName, Integer> createDriveLog() {
         return drivePlan.entrySet().stream().collect(Collectors.toMap(
                 Map.Entry::getKey,
-                entry -> computeDriveByRaceLap(entry.getKey(), new RaceLap(getMaxRaceLap().number() - 1)),
+                entry -> computeDriveByRaceLap(entry.getKey(), convertMaxRaceLapToRaceLap(getMaxRaceLap())),
                 (oldValue, newValue) -> oldValue,
                 LinkedHashMap::new
         ));

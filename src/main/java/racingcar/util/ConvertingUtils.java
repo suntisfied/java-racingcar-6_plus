@@ -8,6 +8,7 @@ import racingcar.setting.Texts;
 import racingcar.valueholder.CarName;
 import racingcar.valueholder.CarNames;
 import racingcar.valueholder.MaxRaceLap;
+import racingcar.valueholder.RaceLap;
 
 public class ConvertingUtils {
     public static List<String> convertStringToList(String listInString) {
@@ -28,5 +29,9 @@ public class ConvertingUtils {
 
     public static String convertNumberToGraphic(int driveSuccessNumber) {
         return Texts.DRIVE_GRAPHIC.getText().repeat(driveSuccessNumber);
+    }
+
+    public static RaceLap convertMaxRaceLapToRaceLap(MaxRaceLap maxRaceLap) {
+        return new RaceLap(maxRaceLap.number() - 1);
     }
 }
