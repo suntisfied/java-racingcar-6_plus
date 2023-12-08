@@ -1,4 +1,4 @@
-package racingcar.view.inputform;
+package racingcar.view.inputvalidator;
 
 import java.util.function.BooleanSupplier;
 

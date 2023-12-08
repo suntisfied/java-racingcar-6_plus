@@ -5,7 +5,6 @@ import static racingcar.util.ValidatingUtils.isProperCarNameLength;
 import static racingcar.util.ValidatingUtils.isUniqueOnly;
 import static racingcar.util.ValidatingUtils.isUsingProperDelimiter;
 
-import racingcar.view.inputform.InputValidatorForm;
 import racingcar.setting.Texts;
 
 public class CarNameValidator extends InputValidatorForm {

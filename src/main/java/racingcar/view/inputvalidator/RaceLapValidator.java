@@ -2,7 +2,6 @@ package racingcar.view.inputvalidator;
 
 import static racingcar.util.ValidatingUtils.isPositiveInteger;
 
-import racingcar.view.inputform.InputValidatorForm;
 import racingcar.setting.Texts;
 
 public class RaceLapValidator extends InputValidatorForm {
