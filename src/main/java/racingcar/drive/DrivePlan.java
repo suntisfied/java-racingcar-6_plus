@@ -1,6 +1,5 @@
 package racingcar.drive;
 
-import static racingcar.drive.DriveTrialsGenerator.generateDriveTrials;
 import static racingcar.util.ConvertingUtils.convertMaxRaceLapToRaceLap;
 
 import java.util.LinkedHashMap;
@@ -11,20 +10,19 @@ import java.util.stream.IntStream;
 import racingcar.setting.Settings;
 import racingcar.valueholder.CarName;
 import racingcar.valueholder.CarNames;
-import racingcar.valueholder.DriveTrials;
 import racingcar.valueholder.MaxRaceLap;
 import racingcar.valueholder.RaceLap;
 
 public class DrivePlan {
     private final Map<CarName, DriveTrials> drivePlan;
 
-    public DrivePlan(final CarNames carNames, final MaxRaceLap maxRaceLap) {
-        drivePlan = createDrivePlan(carNames, maxRaceLap);
+    public DrivePlan(final Map<CarName, DriveTrials> drivePlan) {
+        this.drivePlan = drivePlan;
     }
 
-    private Map<CarName, DriveTrials> createDrivePlan(CarNames carNames, MaxRaceLap maxRaceLap) {
+    public static Map<CarName, DriveTrials> createDrivePlan(CarNames carNames, MaxRaceLap maxRaceLap) {
         return carNames.names().stream()
-                .collect(Collectors.toMap(Function.identity(), key -> new DriveTrials(generateDriveTrials(maxRaceLap)),
+                .collect(Collectors.toMap(Function.identity(), key -> new DriveTrials(DriveTrials.generateDriveTrials(maxRaceLap)),
                         (oldValue, newValue) -> oldValue,
                         LinkedHashMap::new));
     }
@@ -63,7 +61,7 @@ public class DrivePlan {
     }
 
     public MaxRaceLap getMaxRaceLap() {
-        return new MaxRaceLap(drivePlan.values().stream().toList().get(0).trials().size());
+        return new MaxRaceLap(drivePlan.values().stream().toList().get(0).getSize());
     }
 
     public CarNames getCarNames() {

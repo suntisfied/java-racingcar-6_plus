@@ -16,7 +16,7 @@ public class StageManager {
         CarNames carNames = convertStringToCarNames(CarNameReader.readCarNames());
         MaxRaceLap maxRaceLap = convertStringToMaxRaceLap(RaceLapReader.readRaceLap());
 
-        DrivePlan drivePlan = new DrivePlan(carNames, maxRaceLap);
+        DrivePlan drivePlan = new DrivePlan(DrivePlan.createDrivePlan(carNames, maxRaceLap));
 
         System.out.println(DriveFormatter.formatDrive(drivePlan));
         System.out.println(WinnerFormatter.formatWinners(drivePlan));

@@ -24,13 +24,12 @@ class DrivePlanTest {
     void shouldBeBasedOnInput(String mockDriveTrialsString, int mockCurrentRaceLap, int mockDriveByRaceLap) {
         CarNames carNames = new CarNames(List.of(new CarName("alpha"), new CarName("bravo")));
         MaxRaceLap maxRaceLap = new MaxRaceLap(3);
-        List<Integer> mockDriveTrials = stringToIntegerList(mockDriveTrialsString);
 
-        try (MockedStatic<DriveTrialsGenerator> mockDriveTrialsGenerator = Mockito.mockStatic(DriveTrialsGenerator.class)) {
-            mockDriveTrialsGenerator.when(() -> DriveTrialsGenerator.generateDriveTrials(maxRaceLap))
-                    .thenReturn(mockDriveTrials);
+        try (MockedStatic<DriveTrials> mockDriveTrials = Mockito.mockStatic(DriveTrials.class)) {
+            mockDriveTrials.when(() -> DriveTrials.generateDriveTrials(maxRaceLap))
+                    .thenReturn(stringToIntegerList(mockDriveTrialsString));
 
-            DrivePlan drivePlan = new DrivePlan(carNames, maxRaceLap);
+            DrivePlan drivePlan = new DrivePlan(DrivePlan.createDrivePlan(carNames, maxRaceLap));
             int DriveByRaceLap = drivePlan.computeDriveByRaceLap(new CarName("alpha"), new RaceLap(mockCurrentRaceLap));
             CarNames winners = drivePlan.pickWinners();
 
