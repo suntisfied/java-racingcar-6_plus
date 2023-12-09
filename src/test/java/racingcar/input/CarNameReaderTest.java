@@ -1,12 +1,14 @@
 package racingcar.input;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static racingcar.util.ConvertingUtils.convertStringToCarNames;
 
 import camp.nextstep.edu.missionutils.Console;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.mockito.MockedStatic;
 import org.mockito.Mockito;
+import racingcar.valueholder.CarNames;
 import racingcar.view.input.CarNameReader;
 
 class CarNameReaderTest {
@@ -18,9 +20,9 @@ class CarNameReaderTest {
         try (MockedStatic<Console> mockConsole = Mockito.mockStatic(Console.class)) {
             mockConsole.when(Console::readLine).thenReturn(invalidInput, validInput);
 
-            String actualInput = CarNameReader.readCarNames();
+            CarNames actualInput = CarNameReader.readCarNames();
 
-            assertEquals(validInput, actualInput);
+            assertEquals(convertStringToCarNames(validInput), actualInput);
         }
     }
 }

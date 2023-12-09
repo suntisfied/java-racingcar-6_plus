@@ -1,11 +1,12 @@
 package racingcar.view.input;
 
 import racingcar.setting.Texts;
-import racingcar.view.inputvalidator.CarNameValidator;
+import racingcar.util.ConvertingUtils;
+import racingcar.valueholder.CarNames;
 
 public class CarNameReader extends ConsoleInputForm {
-    public static String readCarNames() {
+    public static CarNames readCarNames() {
         return getInputUntilCorrect(() -> System.out.println(Texts.INSTRUCTION_INPUT_CAR_NAMES.getText()),
-                CarNameValidator::checkCarNameInputValidity);
+                ConvertingUtils::convertStringToCarNames);
     }
 }

@@ -4,21 +4,20 @@ import camp.nextstep.edu.missionutils.Console;
 
 public abstract class ConsoleInputForm {
     @FunctionalInterface
-    public interface InputInspector {
-        void inspectInput(String input) throws IllegalArgumentException;
+    public interface InputWrapper<T> {
+        T wrapInput(String input) throws IllegalArgumentException;
     }
 
-    protected static String getInputUntilCorrect(Runnable instruction, InputInspector inputInspector) {
+    protected static <T> T getInputUntilCorrect(Runnable instruction, InputWrapper<T> inputWrapper) {
         instruction.run();
         String input = Console.readLine();
 
         try {
-            inputInspector.inspectInput(input);
+            return inputWrapper.wrapInput(input);
 
         } catch (IllegalArgumentException illegalArgumentException) {
             System.out.println(illegalArgumentException.getMessage());
-            return getInputUntilCorrect(instruction, inputInspector);
+            return getInputUntilCorrect(instruction, inputWrapper);
         }
-        return input;
     }
 }

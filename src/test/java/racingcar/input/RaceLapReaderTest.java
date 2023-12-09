@@ -7,6 +7,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.mockito.MockedStatic;
 import org.mockito.Mockito;
+import racingcar.valueholder.MaxRaceLap;
 import racingcar.view.input.RaceLapReader;
 
 class RaceLapReaderTest {
@@ -18,9 +19,9 @@ class RaceLapReaderTest {
         try (MockedStatic<Console> mockConsole = Mockito.mockStatic(Console.class)) {
             mockConsole.when(Console::readLine).thenReturn(invalidInput, validInput);
 
-            String actualInput = RaceLapReader.readRaceLap();
+            MaxRaceLap actualInput = RaceLapReader.readRaceLap();
 
-            assertEquals(validInput, actualInput);
+            assertEquals(new MaxRaceLap(validInput), actualInput);
         }
     }
 }

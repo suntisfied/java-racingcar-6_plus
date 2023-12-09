@@ -1,20 +1,17 @@
 package racingcar;
 
-import static racingcar.util.ConvertingUtils.convertStringToCarNames;
-import static racingcar.util.ConvertingUtils.convertStringToMaxRaceLap;
-
 import racingcar.drive.DrivePlan;
+import racingcar.valueholder.CarNames;
+import racingcar.valueholder.MaxRaceLap;
 import racingcar.view.input.CarNameReader;
 import racingcar.view.input.RaceLapReader;
 import racingcar.view.outputformat.DriveFormatter;
 import racingcar.view.outputformat.WinnerFormatter;
-import racingcar.valueholder.CarNames;
-import racingcar.valueholder.MaxRaceLap;
 
 public class StageManager {
     public static void proceedRace() {
-        CarNames carNames = convertStringToCarNames(CarNameReader.readCarNames());
-        MaxRaceLap maxRaceLap = convertStringToMaxRaceLap(RaceLapReader.readRaceLap());
+        CarNames carNames = CarNameReader.readCarNames();
+        MaxRaceLap maxRaceLap = RaceLapReader.readRaceLap();
 
         DrivePlan drivePlan = new DrivePlan(DrivePlan.createDrivePlan(carNames, maxRaceLap));
 
